@@ -1,11 +1,11 @@
-import numpy as np
 
 def calculate_matrix_mean(matrix: list[list[float]], mode: str) -> list[float]:
+	
+	a = matrix
+	if mode == "column":
+		a = [list(e) for e in list(zip(*matrix))]
 
-	intsructions = {'column': 0, 'row': 1}
-
-	a = np.array(matrix)
-
-	means = a.mean(axis = intsructions[mode])
+	means = [sum(row) / len(row) for row in a]
+	
 
 	return means
